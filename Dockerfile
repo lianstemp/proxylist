@@ -18,6 +18,8 @@ COPY . /app/
 # Install required Python packages inside the virtual environment
 RUN pip install -r requirements.txt
 
+RUN python main.py
+
 # Run app.py using uvicorn
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8001"]
 

@@ -6,7 +6,6 @@ import requests
 import pandas as pd
 import itertools
 from sources import SOURCES
-from readme import update_readme
 
 logging.basicConfig(
     format='%(asctime)s %(name)s - %(levelname)s - %(message)s',
@@ -188,14 +187,6 @@ def main():
     logging.info(f'{len(list_of_proxies)} proxies are crawled.')
     logging.info(f'{len(USABLE_PROXIES)} proxies are usable.')
 
-    update_readme(metrics={
-        "counts": {
-            "found": len(list_of_proxies),
-            "usable": len(USABLE_PROXIES),
-            "geolocation": len(geolocations),
-        },
-        "sources": source_states
-    })
 
 
 if __name__ == '__main__':
