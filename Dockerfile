@@ -18,6 +18,7 @@ COPY . /app/
 # Install required Python packages inside the virtual environment
 RUN pip install -r requirements.txt
 
+RUN mkdir proxy-list && cd proxy-list && touch data.json && touch data.txt && touch data-with-geolocation.json
 RUN python main.py
 
 # Run app.py using uvicorn
