@@ -19,7 +19,7 @@ COPY . /app/
 RUN pip install -r requirements.txt
 
 # Run app.py using uvicorn
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8001"]
 
 # Schedule main.py to run every 1 hour
 RUN echo "0 * * * * python3 /app/main.py >> /app/cron.log 2>&1" > /etc/cron.d/main_cron
