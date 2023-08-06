@@ -22,7 +22,7 @@ RUN mkdir proxy-list && cd proxy-list && touch data.json && touch data.txt && to
 RUN python main.py
 
 # Add cron job to schedule running main.py every hour
-RUN echo "/10 * * * * cd /app && /venv/bin/python main.py" > /etc/cron.d/main_job
+RUN echo "*/10 * * * * cd /app && /venv/bin/python main.py" > /etc/cron.d/main_job
 RUN chmod 0644 /etc/cron.d/main_job
 RUN crontab /etc/cron.d/main_job
 
