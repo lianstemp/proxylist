@@ -172,16 +172,16 @@ def main():
         for worker in concurrent.futures.as_completed(worker_to_queue):
             worker_to_queue[worker]
 
-    with open("proxy-list/data.json", "w") as f:
+    with open("proxy/data.json", "w") as f:
         json.dump(USABLE_PROXIES, f, indent=4)
 
-    with open("proxy-list/data.txt", "w") as f:
+    with open("proxy/data.txt", "w") as f:
         for x in USABLE_PROXIES:
             f.write(f'{x.get("ip")}:{x.get("port")}\n')
 
     geolocations = geolocation_info(USABLE_PROXIES)
     if len(geolocations) > 0:
-        with open("proxy-list/data-with-geolocation.json", "w") as f:
+        with open("proxy/data-geo.json", "w") as f:
             json.dump(geolocations, f, indent=4)
 
     logging.info(f'{len(list_of_proxies)} proxies are crawled.')
