@@ -18,7 +18,7 @@ COPY . /app/
 # Install required Python packages inside the virtual environment
 RUN pip install -r requirements.txt
 
-RUN mkdir proxy && cd proxy && touch data.json && touch data.txt && touch data-with-geolocation.json
+RUN mkdir proxy && cd proxy && touch data.json && touch data.txt && touch data-geo.json
 RUN python main.py
 
 # Add cron job to schedule running main.py every 10 minutes
