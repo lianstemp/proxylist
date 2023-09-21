@@ -18,8 +18,8 @@ COPY . /app/
 # Install required Python packages inside the virtual environment
 RUN pip install -r requirements.txt
 
-RUN cd proxy && touch data.json && touch data.txt && touch data-geo.json
-RUN python main.py
+# Create necessary files inside the proxy directory
+RUN touch proxy/data.json proxy/data.txt proxy/data-geo.json
 
 # Add cron job to schedule running main.py every 5 minutes
 RUN echo "*/5 * * * * cd /app && /venv/bin/python main.py" > /etc/cron.d/main_job
